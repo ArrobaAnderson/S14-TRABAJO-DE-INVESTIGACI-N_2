@@ -1,0 +1,6 @@
+body{
+    /* background: url(img/Fondo-morado.jpg); */
+    /* background-color:rgba(146, 59, 245, 0.658); */
+    background-image: linear-gradient(to right, DarkOrchid, SlateBlue, DarkSlateBlue,RebeccaPurple,Indigo);
+    font-family: 'Courier New', Courier, monospace;
+}
