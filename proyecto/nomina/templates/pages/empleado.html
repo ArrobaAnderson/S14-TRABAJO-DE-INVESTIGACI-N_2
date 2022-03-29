@@ -1,0 +1,56 @@
+{% extends "inicio.html" %}
+{% load static %}
+{% block css %}
+   <link rel="stylesheet" href="{% static 'css/form.css' %}" />
+{% endblock %}
+{% block titulo %} Empleado {% endblock %} 
+{% block contenido %}
+  <section class="form-container-2">
+    <div class="form-header" >
+      <h1>Formulario de Empleados</h1>
+    </div>
+     <form method="POST" id="form-empleado" class="form">
+      <!-- referencio el formulario empleado -->
+      {% csrf_token %}
+        <button>
+          <a 
+            style="display:block;" 
+            href="{% url 'crear_empleado'%}">Crear
+          </a>
+        </button>
+    <div class="consulta none table-responsive" id="consulta">
+      <h2>Listado de Empleados</h2>
+      <table class="consulta-est" id="consulta-emp" border="1">
+        <thead>
+         <tr> 
+          <th><center>#</center></th>
+          <th><center>Nombre</center></th>
+          <th><center>Cedula</center></th>
+          <th><center>Cargo</center></th>
+          <th><center>Departamento</center></th>
+          <th><center>Sueldo</center></th>
+          <th><center>Activo</center></th>
+          <th><center>Acciones</center></th>
+         </tr> 
+        </thead>
+        <tbody class="detalle-est" id="detalle-est">
+          {% for empleado in empleados  %}  
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{empleado.nombre}}</td>
+            <td>{{empleado.cedula}}</td>
+            <td>{{empleado.cargo}}</td>
+            <td>{{empleado.departamento}}</td>
+            <td>{{empleado.sueldo}}</td>
+            <td>{{empleado.activo}}</td>
+            <td class="acciones">
+              <a href="{% url 'editar_empleado' empleado.id %}">✏️</a>
+              <a href="{% url 'eliminar_empleado' empleado.id %}">❌</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>    
+  </section>
+{% endblock %}

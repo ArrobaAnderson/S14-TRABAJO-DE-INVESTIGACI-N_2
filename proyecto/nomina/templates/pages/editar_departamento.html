@@ -1,0 +1,26 @@
+{% extends "inicio.html" %}
+{% block titulo %}
+  Modificar Departamento
+{% endblock %}
+{% load static %}
+{% block css %} 
+   <link rel="stylesheet" href="{% static 'css/form.css' %}" />
+{% endblock %}
+{% block contenido %}
+  <section class="form-container">
+    <div class="form-header" >
+      <h1>Modificación de Departamentos</h1>
+    </div>
+    <form method="POST" id="form-departamento" class="form">
+      {% csrf_token %}
+        {{ departamentoForm.as_p }}
+          <button
+            id="id"
+            type="submit"
+            name="enviar">
+            {{ accion }}
+          </button>
+      </h2>
+    </form> 
+  </section>
+{% endblock %}

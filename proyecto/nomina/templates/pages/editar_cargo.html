@@ -1,0 +1,26 @@
+{% extends "inicio.html" %}
+{% block titulo %}
+  Modificar Cargo
+{% endblock %}
+{% load static %}
+{% block css %} 
+   <link rel="stylesheet" href="{% static 'css/form.css' %}" />
+{% endblock %}
+{% block contenido %}
+  <section class="form-container">
+    <div class="form-header" >
+      <h1>Modificación de Cargos</h1>
+    </div>
+    <form method="POST" id="form-cargo" class="form">
+      {% csrf_token %}
+        {{ cargoForm.as_p }}
+          <button
+            id="id"
+            type="submit"
+            name="enviar">
+            {{ accion }}
+          </button>
+      </h2>
+    </form> 
+  </section>
+{% endblock %}
